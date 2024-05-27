@@ -1,4 +1,4 @@
-package com.example.lane_detection_opencv_kotlin
+package com.example.lane_detection_kotlin_opencv
 
 import android.content.Context
 import android.content.res.Resources

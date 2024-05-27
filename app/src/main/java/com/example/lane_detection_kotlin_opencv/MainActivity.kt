@@ -1,6 +1,5 @@
-package com.example.lane_detection_opencv_kotlin
+package com.example.lane_detection_kotlin_opencv
 
-import HoughLine
 import android.Manifest
 import android.content.pm.PackageManager
 import android.hardware.camera2.CameraManager
@@ -10,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.lane_detection_opencv_kotlin.databinding.ActivityMainBinding
+import com.example.lane_detection_kotlin_opencv.databinding.ActivityMainBinding
 import org.opencv.android.CameraBridgeViewBase.CAMERA_ID_BACK
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2
