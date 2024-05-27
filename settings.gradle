@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "lane-detection-kotlin-opencv"
 include ':app'
+include ':opencvsdk490'
+project(":opencvsdk490").projectDir = file("opencvsdk490/sdk")
