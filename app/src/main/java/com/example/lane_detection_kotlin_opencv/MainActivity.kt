@@ -99,8 +99,8 @@ class MainActivity : AppCompatActivity(), CvCameraViewListener2 {
         val edges = getEdges(frame)
         val slice = getSlice(edges)
         val lines = getLines(slice)
-        // return visualize(frame, lines)
-        return edges
+         return visualize(frame, lines)
+//        return slice
     }
 
     private fun getEdges(source: Mat): Mat {
@@ -118,14 +118,31 @@ class MainActivity : AppCompatActivity(), CvCameraViewListener2 {
     private fun getSlice(source: Mat): Mat {
         val height = source.height().toDouble()
         val width = source.width().toDouble()
+
+
+        // Define points for the trapezoidal ROI
+        val topLeft = Point(width * 0.4, height * 0.6)  // top left
+        val topRight = Point(width * 0.6, height * 0.6)  // top right
+        val bottomRight = Point(width * 1.0, height * 1.0)  // bottom right
+        val bottomLeft = Point(width * 0.0, height * 1.0)   // bottom left
+
         val polygons = listOf(
             MatOfPoint(
-                Point(width * 0.4, height * 0.4),  // top left
-                Point(width * 0.6, height * 0.4),  // top right
-                Point(width * 0.8, height * 1.0),  // bottom right
-                Point(width * 0.0, height * 1.0)   // bottom left
+                topLeft,
+                topRight,
+                bottomRight,
+                bottomLeft
             )
         )
+//
+//        val polygons = listOf(
+//            MatOfPoint(
+//                Point(width * 0.4, height * 0.4),  // top left
+//                Point(width * 0.6, height * 0.4),  // top right
+//                Point(width * 0.8, height * 1.0),  // bottom right
+//                Point(width * 0.0, height * 1.0)   // bottom left
+//            )
+//        )
         val mask = Mat.zeros(source.rows(), source.cols(), CvType.CV_8UC1)
         Imgproc.fillPoly(mask, polygons, Scalar(255.0))
         val slice = Mat()
